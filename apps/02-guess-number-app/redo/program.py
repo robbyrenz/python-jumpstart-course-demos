@@ -1,5 +1,5 @@
 # a program that asks the user to guess what number the computer chose between 1 and a 100, inclusively
-# this program also demostrates the three ways that I know of concatenating strings with variables
+# this program also demonstrates the three ways that I know of concatenating strings with variables
 
 import random  # so that I can use the random library/module
 
