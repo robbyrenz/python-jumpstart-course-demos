@@ -3,7 +3,7 @@ def main():  # defining a main method; high level code up here
     run_event_loop()
 
 
-# main() can't be defined here as Python would not know the implementations of the functions in the main method
+# main() can't be defined here as Python would not know the definition of the functions in the main method
 
 def print_header():
     print('-------------------------------')
@@ -14,28 +14,42 @@ def print_header():
 def run_event_loop():
 
     print('What do you want to do with your journal?')
-    cmd = None
+    cmd = None  # just initialize cmd to nothing just to get the while loop to work!
+
+    journal_data = []  # initializes an empty list
+    # you can also make a list with the list() function
 
     while cmd != 'x':
         cmd = input('[L]ist entries, [A]dd an entry, E[x]it: ')
         cmd = cmd.lower().strip()
 
         if cmd == 'l':
-            list_entries()
+            list_entries(journal_data)
         elif cmd == 'a':
-            add_entries()
+            add_entries(journal_data)
+        elif cmd == '\n':  # TODO: this is not working!
+            print('Please don\'t enter a newline character!')
         elif cmd != 'x':
             print('Sorry, we don\'t understand \'{}\'.'.format(cmd))
 
     print('Done, goodbye.')
 
 
-def list_entries():
-    print('Listing...')
+def list_entries(data):
+    # print(data)
+    if len(data) == 0:  # if the length of the list is 0...
+        print('You have no saved messages!')
+    else:
+        i = 1
+        for message in data:
+            print(f'{i}. {message}')
+            # OR: print(str(i) + '. ' + message)
+            i = i + 1
 
 
-def add_entries():
-    print('Adding...')
+def add_entries(data):
+    text = input('Type your entry, <enter> to exit: ')
+    data.append(text)
 
 
-main()
+main()  # invoke the main method so that at least something happens!
