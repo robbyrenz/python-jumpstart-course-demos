@@ -28,12 +28,19 @@ def run_event_loop():
         elif cmd == 'a':
             add_entries(journal_data)
         elif cmd == '':  # if the user doesn't enter anything
-            # print('Please don\'t enter a newline character!')
+            # print('Please don\'t enter a newline character!') <enter> probably doesn't result in \n, I think
             print('Please enter something at least!')
         elif cmd != 'x':
             print('Sorry, we don\'t understand \'{}\'.'.format(cmd))
 
     print('Done, goodbye.')
+
+
+def list_entries(data):
+    print('Your journal entries: ')
+    entries = reversed(data)  # the reversed() function...check if its permanent
+    for idx, entry in enumerate(entries):  # enumerate function makes a tuple out of the items with its indexes
+        print('* [{}] {}'.format(idx + 1, entry))
 
 
 # the below block of code is my very own twist to this app
