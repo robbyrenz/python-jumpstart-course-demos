@@ -27,24 +27,26 @@ def run_event_loop():
             list_entries(journal_data)
         elif cmd == 'a':
             add_entries(journal_data)
-        elif cmd == '\n':  # TODO: this is not working!
-            print('Please don\'t enter a newline character!')
+        elif cmd == '':  # if the user doesn't enter anything
+            # print('Please don\'t enter a newline character!')
+            print('Please enter something at least!')
         elif cmd != 'x':
             print('Sorry, we don\'t understand \'{}\'.'.format(cmd))
 
     print('Done, goodbye.')
 
 
-def list_entries(data):
-    # print(data)
-    if len(data) == 0:  # if the length of the list is 0...
-        print('You have no saved messages!')
-    else:
-        i = 1
-        for message in data:
-            print(f'{i}. {message}')
-            # OR: print(str(i) + '. ' + message)
-            i = i + 1
+# the below block of code is my very own twist to this app
+# def list_entries(data):
+#     # print(data)
+#     if len(data) == 0:  # if the length of the list is 0...
+#         print('You have no saved messages!')
+#     else:
+#         i = 1
+#         for message in data:
+#             print(f'{i}. {message}')
+#             # OR: print(str(i) + '. ' + message)
+#             i = i + 1
 
 
 def add_entries(data):
